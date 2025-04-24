@@ -1,0 +1,193 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Encabezado */
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Navegación */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+}
+
+nav ul li {
+    flex: 1;
+}
+
+nav ul li a {
+    display: block;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #4CAF50;
+}
+
+/* Contenido principal */
+main {
+    flex: 1; /* Para asegurar que el contenido principal ocupe el espacio disponible */
+    padding: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+/* Estilo para formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 90%; /* Limitar el ancho máximo */
+    margin: 0 auto; /* Centrar el formulario */
+}
+
+/* Estilo para etiquetas e inputs */
+form label {
+    align-self: flex-start;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Incluye el padding dentro del ancho */
+}
+
+form textarea {
+    resize: none;
+    height: 100px; /* Ajusta la altura del textarea */
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Ajustar la imagen en la página de inicio */
+main img {
+    width: 80%; /* La imagen ocupará el 80% del ancho de la página */
+    max-width: 1792px; /* Limitar el ancho máximo al tamaño original */
+    height: auto; /* Mantener la proporción de la imagen */
+    display: block;
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+    border-radius: 10px; /* Bordes redondeados para darle un toque estético */
+}
+
+/* Asegurar que el pie de página esté fijo abajo */
+html, body {
+    height: 100%; /* Asegurar que ocupen toda la altura de la ventana */
+    margin: 0; /* Eliminar márgenes predeterminados */
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+}
+
+/* Enlaces en el contenido principal */
+main a {
+    text-decoration: none;
+    text-transform: inherit;
+    color: #42ccf9;
+}
+
+/* Contenedor de la pregunta y opciones de disponibilidad */
+.availability-container {
+    display: flex;
+    align-items: center; /* Centrar verticalmente el contenido */
+    gap: 15px; /* Espaciado entre la pregunta y las opciones */
+}
+
+/* Opciones de disponibilidad (botones de radio y etiquetas) */
+.availability-options {
+    display: flex;
+    align-items: center; /* Centrar verticalmente */
+    gap: 10px; /* Espaciado entre las opciones "Sí" y "No" */
+}
+
+.availability-options input[type="radio"] {
+    accent-color: #4CAF50; /* Personalización del color del botón de radio */
+    cursor: pointer;
+    margin: 0; /* Elimina cualquier margen para alinearlos correctamente */
+}
+
+.availability-options label {
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0; /* Asegura que las etiquetas también estén alineadas */
+}
+/* Estilo para las habitaciones no disponibles */
+.not-available {
+    background-color: #ffcccc; /* Fondo rojo suave */
+    color: #a10000; /* Texto rojo oscuro */
+}
+/* Estilo para el encabezado con flexbox */
+header {
+    display: flex;
+    align-items: center; /* Alinea el logo y el título verticalmente al centro */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    gap: 15px; /* Espaciado entre el logo y el título */
+    padding: 20px;
+    background-color: #4CAF50; /* Fondo del encabezado */
+    color: white; /* Color del texto */
+    border-radius: 5px; /* Opcional: bordes redondeados */
+}
+
+header img {
+    width: 50px; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantén la proporción del logo */
+}

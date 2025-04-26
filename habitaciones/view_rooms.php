@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: ../login.php");
+    exit;
+}
+
+// Incluir conexión a la base de datos
 require_once '../scripts/db_connection.php';
 ?>
 
@@ -14,6 +23,7 @@ require_once '../scripts/db_connection.php';
 <body>
     <header>
         <h1>Lista de Habitaciones</h1>
+        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
     </header>
     <main>
         <table>
@@ -35,7 +45,7 @@ require_once '../scripts/db_connection.php';
                 try {
                     $stmt = $conn->query($sql);
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        // Clase condicional para la fila
+                        // Clase condicional para resaltar habitaciones no disponibles
                         $row_class = $row['availability'] ? '' : 'not-available';
 
                         echo "<tr class='$row_class'>
@@ -48,6 +58,7 @@ require_once '../scripts/db_connection.php';
                             <td>{$row['created_at']}</td>
                             <td>
                                 <a href='edit_room.php?room_id={$row['room_id']}' class='action-button'>Editar</a>
+                                <a href='../rooms/delete_room.php?room_id={$row['room_id']}' class='action-button delete-button' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta habitación?\");'>Eliminar</a>
                             </td>
                         </tr>";
                     }
@@ -61,7 +72,7 @@ require_once '../scripts/db_connection.php';
         <a href="../index.php">Volver a Inicio</a>
     </main>
     <footer>
-        <p>&copy; 2025 Gestión Hotelera</p>
+        <p>&copy; 2025 Gestión Hotelera | <a href="../logout.php">Cerrar Sesión</a></p>
     </footer>
 </body>
 </html>

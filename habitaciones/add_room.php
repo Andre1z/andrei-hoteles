@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: ../login.php");
+    exit;
+}
+
+// Incluir conexión a la base de datos
 require_once '../scripts/db_connection.php';
 
 // Manejar el envío del formulario
@@ -42,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <header>
         <h1>Agregar Habitación</h1>
+        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
     </header>
     <main>
         <form method="POST" action="add_room.php">
@@ -73,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="view_rooms.php">Volver a Ver Habitaciones</a>
     </main>
     <footer>
-        <p>&copy; 2025 Gestión Hotelera</p>
+        <p>&copy; 2025 Gestión Hotelera | <a href="../logout.php">Cerrar Sesión</a></p>
     </footer>
 </body>
 </html>

@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+
 // Incluir conexión a la base de datos
 require_once 'scripts/db_connection.php';
 ?>
@@ -13,7 +21,8 @@ require_once 'scripts/db_connection.php';
 </head>
 <body>
     <header>
-        <img src="assets/logo.png" alt="Logo"><h1>Andrei | Gestion de Habitaciones</h1>
+        <img src="assets/logo.png" alt="Logo">
+        <h1>Andrei | Gestión de Habitaciones</h1>
     </header>
     <nav>
         <ul>
@@ -22,12 +31,12 @@ require_once 'scripts/db_connection.php';
         </ul>
     </nav>
     <main>
-        <h2>Bienvenido a la Gestión de Habitaciones</h2>
+        <h2>Bienvenido, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h2>
         <p>Selecciona una opción en el menú.</p>
-        <img src="assets\imagen.webp" alt="">
+        <img src="assets/imagen.webp" alt="Gestión de Habitaciones">
     </main>
     <footer>
-        <p>&copy; 2025 Gestión Hotelera</p>
+        <p>&copy; 2025 Gestión Hotelera | <a href="logout.php">Cerrar Sesión</a></p>
     </footer>
 </body>
 </html>

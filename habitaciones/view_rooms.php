@@ -58,7 +58,7 @@ require_once '../scripts/db_connection.php';
                             <td>{$row['created_at']}</td>
                             <td>
                                 <a href='edit_room.php?room_id={$row['room_id']}' class='action-button'>Editar</a>
-                                <a href='../rooms/delete_room.php?room_id={$row['room_id']}' class='action-button delete-button' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta habitación?\");'>Eliminar</a>
+                                <a href='delete_room.php?room_id={$row['room_id']}' class='action-button delete-button' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta habitación?\");'>Eliminar</a>
                             </td>
                         </tr>";
                     }

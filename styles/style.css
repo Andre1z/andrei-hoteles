@@ -7,12 +7,29 @@ body {
     color: #333;
 }
 
+/* Asegurar que el pie de página esté fijo en la parte inferior */
+html, body {
+    height: 100%; /* Garantizar que ocupen toda la altura de la ventana */
+    margin: 0; /* Eliminar márgenes predeterminados */
+    display: flex;
+    flex-direction: column;
+}
+
 /* Encabezado */
 header {
-    background-color: #4CAF50;
-    color: #fff;
+    display: flex;
+    align-items: center; /* Alinear el logo y el título verticalmente */
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    gap: 15px; /* Espaciado entre el logo y el título */
     padding: 20px;
-    text-align: center;
+    background-color: #4CAF50; /* Fondo verde */
+    color: white; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+header img {
+    width: 50px; /* Tamaño del logo */
+    height: auto; /* Mantener proporciones */
 }
 
 header h1 {
@@ -47,11 +64,30 @@ nav ul li a:hover {
 
 /* Contenido principal */
 main {
-    flex: 1; /* Para asegurar que el contenido principal ocupe el espacio disponible */
+    flex: 1; /* Expandir contenido principal */
     padding: 20px;
     text-align: center;
 }
+main a{
+    text-decoration: none; /* Eliminar subrayado */
+    color: #42ccf9; /* Color específico */
+    font-weight: bold; /* Opcional: resaltar el enlace */
+}
+main a:hover{
+    color: #1ea1cc; /* Cambiar el color al pasar el cursor */
+}
 
+/* Ajuste de imágenes */
+main img {
+    width: 80%; /* La imagen ocupará el 80% del ancho disponible */
+    max-width: 1792px; /* Máximo ancho permitido */
+    height: auto; /* Mantener proporciones */
+    display: block;
+    margin: 0 auto; /* Centrar horizontalmente */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Tablas */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -69,17 +105,46 @@ table th {
     color: #fff;
 }
 
-/* Estilo para formularios */
+/* Habitaciones no disponibles */
+.not-available {
+    background-color: #ffcccc; /* Fondo rojo suave */
+    color: #a10000; /* Texto rojo oscuro */
+}
+
+/* Botones de acción */
+.action-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button {
+    background-color: #e74c3c; /* Rojo para eliminar */
+}
+
+.delete-button:hover {
+    background-color: #c0392b; /* Rojo más oscuro */
+}
+
+/* Formularios */
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    max-width: 90%; /* Limitar el ancho máximo */
-    margin: 0 auto; /* Centrar el formulario */
+    max-width: 90%;
+    margin: 0 auto;
 }
 
-/* Estilo para etiquetas e inputs */
 form label {
     align-self: flex-start;
     font-weight: bold;
@@ -92,12 +157,12 @@ form input, form textarea, form button {
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Incluye el padding dentro del ancho */
+    box-sizing: border-box;
 }
 
 form textarea {
     resize: none;
-    height: 100px; /* Ajusta la altura del textarea */
+    height: 100px;
 }
 
 form button {
@@ -112,82 +177,47 @@ form button:hover {
     background-color: #45a049;
 }
 
-/* Ajustar la imagen en la página de inicio */
-main img {
-    width: 80%; /* La imagen ocupará el 80% del ancho de la página */
-    max-width: 1792px; /* Limitar el ancho máximo al tamaño original */
-    height: auto; /* Mantener la proporción de la imagen */
-    display: block;
-    margin: 0 auto; /* Centrar la imagen horizontalmente */
-    border-radius: 10px; /* Bordes redondeados para darle un toque estético */
-}
-
-/* Asegurar que el pie de página esté fijo abajo */
-html, body {
-    height: 100%; /* Asegurar que ocupen toda la altura de la ventana */
-    margin: 0; /* Eliminar márgenes predeterminados */
+/* Contenedor de disponibilidad */
+.availability-container {
     display: flex;
-    flex-direction: column;
+    align-items: center; /* Centrar verticalmente */
+    gap: 15px; /* Espaciado entre la pregunta y las opciones */
 }
 
+.availability-options {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaciado entre las opciones "Sí" y "No" */
+}
+
+.availability-options input[type="radio"] {
+    accent-color: #4CAF50; /* Personalizar color del botón */
+    cursor: pointer;
+    margin: 0;
+}
+
+.availability-options label {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Pie de página */
 footer {
     text-align: center;
     padding: 10px;
     background-color: #333;
     color: #fff;
     width: 100%;
+    margin-top: auto; /* Asegurar que el footer esté abajo */
 }
 
-/* Enlaces en el contenido principal */
-main a {
-    text-decoration: none;
-    text-transform: inherit;
-    color: #42ccf9;
+/* Estilo para el enlace en el pie de página */
+footer a {
+    text-decoration: none; /* Eliminar subrayado */
+    color: #42ccf9; /* Color específico */
+    font-weight: bold; /* Opcional: resaltar el enlace */
 }
 
-/* Contenedor de la pregunta y opciones de disponibilidad */
-.availability-container {
-    display: flex;
-    align-items: center; /* Centrar verticalmente el contenido */
-    gap: 15px; /* Espaciado entre la pregunta y las opciones */
-}
-
-/* Opciones de disponibilidad (botones de radio y etiquetas) */
-.availability-options {
-    display: flex;
-    align-items: center; /* Centrar verticalmente */
-    gap: 10px; /* Espaciado entre las opciones "Sí" y "No" */
-}
-
-.availability-options input[type="radio"] {
-    accent-color: #4CAF50; /* Personalización del color del botón de radio */
-    cursor: pointer;
-    margin: 0; /* Elimina cualquier margen para alinearlos correctamente */
-}
-
-.availability-options label {
-    font-weight: bold;
-    cursor: pointer;
-    margin: 0; /* Asegura que las etiquetas también estén alineadas */
-}
-/* Estilo para las habitaciones no disponibles */
-.not-available {
-    background-color: #ffcccc; /* Fondo rojo suave */
-    color: #a10000; /* Texto rojo oscuro */
-}
-/* Estilo para el encabezado con flexbox */
-header {
-    display: flex;
-    align-items: center; /* Alinea el logo y el título verticalmente al centro */
-    justify-content: center; /* Centra el contenido horizontalmente */
-    gap: 15px; /* Espaciado entre el logo y el título */
-    padding: 20px;
-    background-color: #4CAF50; /* Fondo del encabezado */
-    color: white; /* Color del texto */
-    border-radius: 5px; /* Opcional: bordes redondeados */
-}
-
-header img {
-    width: 50px; /* Ajusta el tamaño del logo */
-    height: auto; /* Mantén la proporción del logo */
+footer a:hover {
+    color: #1ea1cc; /* Cambiar el color al pasar el cursor */
 }
